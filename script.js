@@ -11,7 +11,6 @@ function generatePassword() {
     // checks user input against length requirements
     if (lengthInput < 8 || lengthInput > 128) {
         alert("Please enter a number between 8 and 128.");
-        generatePassword();
 
         return lengthInput;
     }
