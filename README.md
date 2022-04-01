@@ -34,67 +34,22 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
 
-## Mock-Up
+## My Homework Project
 
-The following image shows the web application's appearance and functionality:
+```
+When you visit the page it will take you to a password generator landing page. 
+Upon clicking the "Generate Password" button it will then ask you multiple questions regarding what is to be included in your password.
+It prompts the user for the length of the password between 8 - 128 characters.
+It prompts the user if they want to use lowercase letters in their password.
+It prompts the user if they want to use uppercase letters in their password.
+It prompts the user if they want to use numbers letters in their password.
+It prompts the user if they want to use special characters letters in their password.
+After asking the user these questions it then spits out a randomized string of characters that the user can use as a password in the box above the "generate password" button. 
+```
 
-![The Password Generator application displays a red button to "Generate Password".](./Assets/03-javascript-homework-demo.png)
+## Issues
 
-## Grading Requirements
-
-> **Note**: If a homework assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This homework is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the homework instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
-- - -
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+```
+There is currently an issue with something being undefined when it randomized a password.
+It happens less often when just selecting 8 characters, but if you actively ask for longer lengths you will see it every time. 
+```

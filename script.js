@@ -9,8 +9,10 @@ function generatePassword() {
   var length = lengthPrompt();
   var charOptions = charPrompt();
   var newPassword= "";
+  // getthing this part right below really gave me a headache. Was throwing undefined's until it was correct
   for (i = 0; i < length; i++) {
-    random = Math.min(Math.floor(Math.random() * 100), charOptions.length)
+    random = Math.floor(Math.random() * charOptions.length - 1)
+    
     newPassword += charOptions[random];
   }
 
@@ -36,7 +38,7 @@ function lengthPrompt() {
     return lengthInput;
 }
 
-
+// didsnt need an array?
 // const lowercaseArray = lowercase.split("");
 // const uppercaseArray = uppercase.split("");
 // const numberArray = numbers.split("") ;
@@ -85,16 +87,16 @@ return charOptions;
 
 }
 
-
 // Write password to the #password input
 function writePassword(password) {
 //  var password = generatePassword();
   var passwordText = document.querySelector("#password");
-  
+
   passwordText.value = password;
 
 }
 
 
 
+// It's adding undefined's into everything whether you select just lowercase, just uppercase, just numbers, etc...
 
