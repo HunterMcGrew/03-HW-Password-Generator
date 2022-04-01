@@ -4,99 +4,69 @@ var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
 generateBtn.addEventListener("click", generatePassword);
 
+// function to generate random password 
 function generatePassword() {
-
-  var length = lengthPrompt();
-  var charOptions = charPrompt();
-  var newPassword= "";
-  // getthing this part right below really gave me a headache. Was throwing undefined's until it was correct
-  for (i = 0; i < length; i++) {
-    random = Math.floor(Math.random() * charOptions.length - 1)
-    
-    newPassword += charOptions[random];
-  }
-
-  writePassword(newPassword);
- 
-}
-
-//Input prompt for length of password
-
-
-function lengthPrompt() {
-
-// prompt for length of password 8 through 128
-  let lengthInput = Number(prompt("Choose a password length between 8 and 128 characters."));
-// checks user input 
+// prompt the user for password length between 8 - 128
+    var lengthInput = Number(prompt("Choose a password length between 8 and 128 characters."));
+    // checks user input against length requirements
     if (lengthInput < 8 || lengthInput > 128) {
-      alert("Please enter a number between 8 and 128.");
+        alert("Please enter a number between 8 and 128.");
+        generatePassword();
 
-     lengthPrompt();
-
+        return lengthInput;
     }
-    
-    return lengthInput;
-}
 
-// didsnt need an array?
-// const lowercaseArray = lowercase.split("");
-// const uppercaseArray = uppercase.split("");
-// const numberArray = numbers.split("") ;
-// const specialCharsArray = specialChars.split("");
+    // string variables for possible charOptions based on user input
+    var lowercase = "abcdefghijklmnopqrstuvwxyz";
+    var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var numbers = "1234567890";
+    var specialChars = "!@#$%^&*";
+    var charOptions = "";
+    // ask the user if they want to use lowercase letters in their password
+    var useLowercase = confirm("Do you want to include lowercase letters?");
+    // if user selected yes, add all lowercase letters to charOptions
+    if (useLowercase === true) {
+        charOptions += lowercase;
+    }
+    // ask the user if they want to use uppercase letters in their password
+    var useUppercase = confirm("Do you want to use uppercase letters?");
+    // if user selected yes, add all uppercase letters to charOptions
+    if (useUppercase === true) {
+        charOptions += uppercase;
+    }
+    // ask the user if they want to use numbers in their password
+    var useNumbers = confirm("Do you want to include numbers?");
+    // if user said yes, add all number to charOptions
+    if (useNumbers === true){
+        charOptions += numbers;
+    }
+    // ask the user if they want to use special characters in their password
+    var useSpecialChars = confirm("Do you want to include special characters?");
+    // if user said yes, add all special characters to charOptions
+    if (useSpecialChars === true) {
+        charOptions += specialChars;
+    }
 
-function charPrompt() {
 
-// variables to hold character data
-  var lowercase = "abcdefghijklmnopqrstuvwxyz"; 
-  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var numbers = "1234567890";
-  var specialChars = "!@#$%^&*";
-  var charOptions = "";
+    var length = lengthInput;
+    var newPassword= "";
 
-// prompt for lowercase
-  let useLowercase = confirm("Do you want to include lowercase letters?"); 
-// prompt for uppercase
-  let useUppercase = confirm("Do you want to use uppercase letters?");
-// prompt for numbers
-  let useNumbers = confirm("Do you want to use numbers?");
-// prompt for special characters
-  let useSpecialChars = confirm("Do you want to use special characters?");
-
-// if confirm on lowercase add it to charOptions
-  if (useLowercase === true) {
-    charOptions += lowercase;
+    // getthing this part right below really gave me a headache. Was throwing undefined's until it was correct
+    for (i = 0; i < length; i++) {
+      random = Math.floor(Math.random() * charOptions.length);
+      
+      newPassword += charOptions[random];
+    }
+  
+    writePassword(newPassword);
+   
   }
-// if confirm on uppercase add it to the charOptions
-  if (useUppercase === true) {
-    charOptions += uppercase;
-  }
-// if confirm on numbers add it to the charOptions
-  if (useNumbers === true) {
-    charOptions += numbers;
-  }
-// if confirm on special chars add it to the charOptions
-  if (useSpecialChars === true)  {
-    charOptions += specialChars;
-  }
-// if no selection prompt you gotta select one
-  if (charOptions === "") {
-    alert("You must select at least one option.");
-  }
-
-return charOptions;
-
-}
 
 // Write password to the #password input
 function writePassword(password) {
-//  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-
-
-// It's adding undefined's into everything whether you select just lowercase, just uppercase, just numbers, etc...
-
+    //  var password = generatePassword();
+      var passwordText = document.querySelector("#password");
+    
+      passwordText.value = password;
+    
+    }

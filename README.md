@@ -50,6 +50,5 @@ After asking the user these questions it then spits out a randomized string of c
 ## Issues
 
 ```
-There is currently an issue with something being undefined when it randomized a password.
-It happens less often when just selecting 8 characters, but if you actively ask for longer lengths you will see it every time. 
+No issues
 ```
